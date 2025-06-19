@@ -1,10 +1,20 @@
-import React from 'react'
+import { useSearchParams } from 'react-router-dom';
 import { useTodos } from '../../store/todo'
 
 const ListTodos = () => {
     const { todos, toggleCompletedStatus, deleteList } = useTodos()
 
-    const filtered_todos = todos;
+    const [searchParams] = useSearchParams()
+    const searchTerm:string = searchParams.get("todos")
+    let filtered_todos = todos;
+
+    if(searchTerm == 'active'){
+        filtered_todos = filtered_todos.filter((todo)=> !todo.completed)
+    }
+
+    if(searchTerm == 'completed'){
+        filtered_todos = filtered_todos.filter((todo)=> todo.completed)
+    }
 
     
     return (

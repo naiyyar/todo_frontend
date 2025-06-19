@@ -10,9 +10,38 @@
   color: red;
 }
 
+nav a{
+  padding: 2px 16px;
+  margin-bottom: 16px;
+}
+
+nav a:active, nav a:visited{
+  border-bottom: 2px solid #000;
+}
+
+nav .nav-link {
+  /* padding: 4px; */
+}
+
+form{
+  padding: 12px 0px;
+}
+
+form button{
+  margin-left: 10px;
+  background-color: cadetblue;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 16px;
+}
+
 ul li{
   list-style: none;
   margin: 4px 0px;
+  background: #f2f2f2;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+  border-radius: 4px;
 }
 
 ul.todos{
