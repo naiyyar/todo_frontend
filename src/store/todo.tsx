@@ -30,9 +30,9 @@ export const TodosProvider = ({children}:TodosProviderProps) => {
         })
     }
 
-    return <todosContext value={{todos, handleAddTodo}}>
+    return <todosContext.Provider value={{todos, handleAddTodo}}>
         {children}
-    </todosContext>
+    </todosContext.Provider>
 }
 
 // Consumer
@@ -41,7 +41,7 @@ export const useTodos = () => {
     const todosConsumer = useContext(todosContext)
 
     if(!todosConsumer){
-        //throw new Error("Something went wrong in useTodos")
+        throw new Error("Something went wrong in useTodos")
     }
 
     return todosConsumer
