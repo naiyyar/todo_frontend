@@ -9,3 +9,23 @@
   text-decoration: line-through;
   color: red;
 }
+
+ul li{
+  list-style: none;
+  margin: 4px 0px;
+}
+
+ul.todos{
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+ul > li > button {
+  background-color: red;
+  padding: 4px;
+  font-size: 12px;
+  margin-left: 10px;
+  float: right;
+  color: white;
+}

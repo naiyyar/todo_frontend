@@ -2,17 +2,13 @@ import React from 'react'
 import { useTodos } from '../../store/todo'
 
 const ListTodos = () => {
-    const { todos, toggleCompletedStatus } = useTodos()
+    const { todos, toggleCompletedStatus, deleteList } = useTodos()
 
     const filtered_todos = todos;
 
-    function deleteList(id) {
-
-    }
     
     return (
-        <div>
-
+        <ul className="todos">
             {
                 filtered_todos.map((todo) => {
                     return <li key={todo.id}>
@@ -23,13 +19,13 @@ const ListTodos = () => {
                         
                         <label htmlFor={todo.id} className={todo.completed && "completed"}>{todo.title}</label>
 
-                        {todo.completed && <button type='button' onClick={deleteList(todo.id)}>Delete</button>}
+                        {todo.completed && <button type="button" onClick={() => deleteList(todo.id)}>Delete</button>}
                     </li>
                 })
             }
         
-        </div>
+        </ul>
     )
-    }
+}
 
-export default ListTodos
+export default ListTodos;

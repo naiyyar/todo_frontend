@@ -14,6 +14,7 @@ export type TodosContext = {
     todos:Todo[];
     handleAddTodo:(id:string) => void;
     toggleCompletedStatus:(id:string) => void;
+    deleteList:(id:string) => void;
 }
 
 export const todosContext = createContext<TodosContext | null>(null)
@@ -44,16 +45,26 @@ export const TodosProvider = ({children}:TodosProviderProps) => {
                 return todo;
             }) 
 
-            console.log(newTodos)
-
             return newTodos;
         })
     }
 
-    return <todosContext.Provider value={{todos, handleAddTodo, toggleCompletedStatus}}>
+    // Delete
+
+    const deleteList = (id:string) => {
+        setTodos((prev) => {
+            const filtered_todos:Todo[] = prev.filter((list) => list.id != id)
+
+            return filtered_todos
+        })
+    }
+
+    return <todosContext.Provider value={{todos, handleAddTodo, toggleCompletedStatus, deleteList}}>
         {children}
     </todosContext.Provider>
 }
+
+
 
 // Consumer
 
